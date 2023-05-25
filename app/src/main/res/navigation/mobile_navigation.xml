@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.myapplication.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_category"
+        android:name="com.example.myapplication.ui.category.CategoryFragment"
+        android:label="@string/add_category"
+
+        tools:layout="@layout/fragment_category" />
+
+    <action
+        android:id="@+id/action_global_navigation_category"
+        app:destination="@id/navigation_category"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" />
+    <activity
+        android:id="@+id/signInActivity2"
+        android:name="com.example.myapplication.SignInActivity"
+        android:label="activity_sign_in"
+        tools:layout="@layout/activity_sign_in" />
+    <action
+        android:id="@+id/action_global_signInActivity2"
+        app:destination="@id/signInActivity2"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_enter_anim"
+        app:launchSingleTop="false"
+        app:popEnterAnim="@anim/nav_default_enter_anim"
+        app:popExitAnim="@anim/nav_default_enter_anim" />
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.myapplication.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+</navigation>

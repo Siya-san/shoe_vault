@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "621138248310",
+    "project_id": "the-shoe-vault",
+    "storage_bucket": "the-shoe-vault.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621138248310:android:59210cc81fab85c1371557",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621138248310-0g3jbi89a0a4kkg36m52uv8m8vgrafrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClw8qOIpZjslh0x6U0lAA4a5aOLJ8cSGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621138248310-0g3jbi89a0a4kkg36m52uv8m8vgrafrb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
