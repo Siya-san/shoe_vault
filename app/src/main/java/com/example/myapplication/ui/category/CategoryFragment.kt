@@ -6,9 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.databinding.FragmentCategoryBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -29,18 +27,25 @@ class CategoryFragment : Fragment() {
         savedInstanceState: Bundle?
 
     ): View {
-        val categoryViewModel =
-            ViewModelProvider(this).get(CategoryViewModel::class.java)
+
 
         _binding = FragmentCategoryBinding.inflate(/* inflater = */ inflater, /* parent = */
             container, /* attachToParent = */
             false)
         val root: View = binding.root
         binding.addCategory.setOnClickListener{
-            val tempname =binding.name.text.toString()
+            var tempname =binding.name.text.toString()
             val tempdescprition =binding.description.text.toString()
             val tempsize =binding.size.text.toString()
-            database = FirebaseDatabase.getInstance().getReference("Category")
+           if(tempname.lastOrNull { it == ' ' }!=null){
+               tempname = tempname.dropLast(1)
+           }
+            val categoryMap = HashMap<String, String>()
+
+            categoryMap["name"] = tempname
+            categoryMap["description"] = tempdescprition
+            categoryMap["size"] = tempsize
+            database = FirebaseDatabase.getInstance().getReference("Categories")
             val category = Category(tempname,tempdescprition,tempsize)
             database.child(tempname).setValue(category).addOnSuccessListener {
                 binding.name.text?.clear()
