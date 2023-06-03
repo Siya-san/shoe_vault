@@ -8,7 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.ui.category.Category
 
-class HomeAdaptor(private val categoryList : ArrayList<Category>) : RecyclerView.Adapter<HomeAdaptor.MyViewHolder>() {
+class HomeAdaptor(private val categoryList : ArrayList<Category>,private val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<HomeAdaptor.MyViewHolder>() {
+    interface OnItemClickListener {
+        fun onItemClick(category: Category)
+    }
+    private var listener: OnItemClickListener? = null
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.listener = listener
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.category_items,
@@ -23,6 +30,9 @@ class HomeAdaptor(private val categoryList : ArrayList<Category>) : RecyclerView
         holder.name.text = currentitem.category_name
         holder.description.text = currentitem.category_description
         holder.size.text = currentitem.category_size
+        holder.itemView.setOnClickListener {
+            onItemClickListener.onItemClick(currentitem)
+        }
 
     }
     override fun getItemCount(): Int {
@@ -36,5 +46,6 @@ class HomeAdaptor(private val categoryList : ArrayList<Category>) : RecyclerView
         val size : TextView = itemView.findViewById(R.id.categorySize)
 
     }
+
 
 }
