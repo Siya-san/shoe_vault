@@ -12,6 +12,6 @@ class ItemPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun createFragment(position: Int): Fragment {
         // Return the fragment for each tab
         // Replace `YourFragment` with your actual fragment class
-        return ViewItemsFragment.newInstance(position)
+        return AddItemFragment.newInstance(position)
     }
 }

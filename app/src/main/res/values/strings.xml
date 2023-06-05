@@ -23,4 +23,8 @@
     <string name="title_search">Search</string>
     <string name="category_size">Category Size</string>
     <string name="category_name">Category Name</string>
+    <string name="description">Description</string>
+    <string name="size">Size</string>
+    <string name="fragment_search">Search</string>
+    <string name="fragment_item">Collection</string>
 </resources>

@@ -11,7 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.ui.category.Category
 import com.example.myapplication.ui.home.HomeAdaptor
-import com.example.myapplication.ui.items.AddItemFragment
+import com.example.myapplication.ui.items.ItemFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(), HomeAdaptor.OnItemClickListener {
@@ -39,11 +39,29 @@ class MainActivity : AppCompatActivity(), HomeAdaptor.OnItemClickListener {
     }
 
     override fun onItemClick(category: Category) {
-        val itemFragment = AddItemFragment.newInstance(category)
+        val itemFragment = ItemFragment.newInstance(category)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
         val navController = navHostFragment.navController
 
         navController.navigate(R.id.itemFragment, Bundle().apply {
+            putParcelable("arg_category", category)
+        })
+    }
+    fun addItem(category: Category) {
+        val itemFragment = ItemFragment.newInstance(category)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        navController.navigate(R.id.addItemFragment, Bundle().apply {
+            putParcelable("arg_category", category)
+        })
+    }
+    fun viewItems(category: Category) {
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        navController.navigate(R.id.viewItemsFragment, Bundle().apply {
             putParcelable("arg_category", category)
         })
     }

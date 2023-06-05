@@ -34,11 +34,21 @@
     <fragment
         android:id="@+id/navigation_search"
         android:name="com.example.myapplication.ui.search.SearchFragment"
-        android:label="fragment_search"
+        android:label="@string/fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/itemFragment"
-        android:name="com.example.myapplication.ui.items.AddItemFragment"
-        android:label="fragment_item"
+        android:name="com.example.myapplication.ui.items.ItemFragment"
+        android:label="@string/fragment_item"
         tools:layout="@layout/fragment_item" />
+    <fragment
+        android:id="@+id/addItemFragment"
+        android:name="com.example.myapplication.ui.items.AddItemFragment"
+        android:label="fragment_add_item"
+        tools:layout="@layout/fragment_add_item" />
+    <fragment
+        android:id="@+id/viewItemsFragment"
+        android:name="com.example.myapplication.ui.items.ViewItemsFragment"
+        android:label="fragment_view_items"
+        tools:layout="@layout/fragment_view_items" />
 </navigation>
